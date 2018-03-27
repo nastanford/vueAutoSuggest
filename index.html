@@ -4,20 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue Auto Suggest </title>
+  <title>Vue Advanced Searchbox</title>
   <script src="./js/vue.js"></script>
+  <style>
+
+    .searchTitle {
+      color: #888;
+      font-size: 14px;
+      line-height: 25px;
+      font-weight: 700;
+    }
+
+    .searchParameter{
+      color: #fff;
+      background-color: #bbb;
+      height: 24px;
+      padding: 0 5px;
+      line-height: 24px;
+      transition: box-shadow 100ms linear;
+    }
+    .form-control:focus {
+      border-color: inherit;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+  </style>
 </head>
 <body>
-    <h1>Vue Auto Suggest</h1>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container"><div class="navbar-header">
+      <a href="#" class="navbar-brand">Vue Advanced Searchbox</a>
+    </div></div>
+    <div class="navbar-collapse collapse" id="navbar"></div>
+  </nav>
 
-  <div id="app">
-    <div><h2>Search</h2>
-      Search: <input name="search" @focus="searchMode = true">
-      <div v-if="searchMode">Parameter Suggestions: Name, City, Country, E-Mail, Job</div>
-      <button>Search</button>
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1>Vue Advanced Searchbox</h1>
+      <p>This example was created after seeing the Angular Advanced Searchbox</p>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12"><strong>Demo</strong></div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="app">
+
+            <div id="searchBox">
+              <input name="search" class="form-control" @focus="searchMode = true" placeholder="Search..." @blur="searchMode = false" >
+            </div>
+
+            <div v-if="searchMode">
+              <span class="searchTitle">Parameter Suggestions:</span> 
+              <span class="searchParameter">Name</span>
+              <span class="searchParameter">City</span>
+              <span class="searchParameter">Country</span>
+              <span class="searchParameter">E-Mail</span>
+              <span class="searchParameter">Job</span>
+            </div><br>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  
+
 <script src="app.js"></script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </body>
 </html>
