@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue Auto Suggest </title>
+  <script src="./js/vue.js"></script>
+</head>
+<body>
+    <h1>Vue Auto Suggest</h1>
+
+  <div id="app">
+    <div><h2>Search</h2>
+      Search: <input name="search" @focus="searchMode = true">
+      <div v-if="searchMode">Parameter Suggestions: Name, City, Country, E-Mail, Job</div>
+      <button>Search</button>
+    </div>
+  </div>
+  
+<script src="app.js"></script>
+</body>
+</html>
