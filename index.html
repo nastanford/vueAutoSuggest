@@ -29,25 +29,26 @@
             <div id="searchBox">
               <span v-if="nameMode" class="SearchInputs" id="nameBox">
                 <label>Name </label>
-                <input class="searchParameterInput" name="name" id="name" placeholder="Name..." value=" ">
+                <input class="searchParameterInput" name="name" id="name" placeholder="Name..." value=" " tabindex="2">
               </span>
               <span v-if="cityMode" class="SearchInputs" id="cityBox">
                 <label>City </label>
-                <input class="searchParameterInput" name="city" id="city" placeholder="City..." value=" ">
+                <input class="searchParameterInput" name="city" id="city" placeholder="City..." value=" " tabindex="3">
               </span>
               <span v-if="countryMode" class="SearchInputs" id="countryBox">
                 <label>Country </label>
-                <input class="searchParameterInput" name="country" id="country" placeholder="Country..." value=" ">
+                <input class="searchParameterInput" name="country" id="country" placeholder="Country..." value=" " tabindex="4">
               </span>
               <span v-if="emailAddressMode" class="SearchInputs" id="emailAddressBox">
                 <label>E-Mail </label>
-                <input class="searchParameterInput" name="emailAddress" id="emailAddress" placeholder="E-Mail..." value=" ">
+                <input class="searchParameterInput" name="emailAddress" id="emailAddress" placeholder="E-Mail..." value=" " tabindex="5">
               </span>
               <span v-if="jobMode" class="SearchInputs" id="jobBox">
                 <label>Job </label>
-                <input class="searchParameterInput" name="job" id="job" placeholder="Job..." value=" ">
+                <input class="searchParameterInput" name="job" id="job" placeholder="Job..." value=" " tabindex="6">
               </span>
-              <input name="search" id="searchInput" @change="checkSearch" @focus="searchMode = true" placeholder="Search..." @blur="searchMode = false" >
+              <input name="search" id="searchInput" @keyup="checkSearch" v-model="searchValue" @focus="searchMode = true" placeholder="Search..." @blur="searchMode = false" tabindex="7">
+              <button @click="test">Test</button> 
             </div> 
             <p>Search Value: {{ searchValue }}</p>
             <div v-if="searchMode">
