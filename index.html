@@ -6,29 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vue Advanced Searchbox</title>
   <script src="./js/vue.js"></script>
-  <style>
-
-    .searchTitle {
-      color: #888;
-      font-size: 14px;
-      line-height: 25px;
-      font-weight: 700;
-    }
-
-    .searchParameter{
-      color: #fff;
-      background-color: #bbb;
-      height: 24px;
-      padding: 0 5px;
-      line-height: 24px;
-      transition: box-shadow 100ms linear;
-    }
-    .form-control:focus {
-      border-color: inherit;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-    }
-  </style>
+  <link rel="stylesheet" href="default.css">
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -37,26 +15,41 @@
     </div></div>
     <div class="navbar-collapse collapse" id="navbar"></div>
   </nav>
-
   <div class="container">
-
     <div class="jumbotron">
       <h1>Vue Advanced Searchbox</h1>
       <p>This example was created after seeing the Angular Advanced Searchbox</p>
     </div>
-
     <div class="row">
       <div class="col-sm-12"><strong>Demo</strong></div>
     </div>
-    
     <div class="row">
       <div class="col-sm-12">
         <div id="app">
-
             <div id="searchBox">
-              <input name="search" class="form-control" @focus="searchMode = true" placeholder="Search..." @blur="searchMode = false" >
-            </div>
-
+              <span v-if="nameMode" class="SearchInputs" id="nameBox">
+                <label>Name </label>
+                <input class="searchParameterInput" name="name" id="name" placeholder="Name..." value=" ">
+              </span>
+              <span v-if="cityMode" class="SearchInputs" id="cityBox">
+                <label>City </label>
+                <input class="searchParameterInput" name="city" id="city" placeholder="City..." value=" ">
+              </span>
+              <span v-if="countryMode" class="SearchInputs" id="countryBox">
+                <label>Country </label>
+                <input class="searchParameterInput" name="country" id="country" placeholder="Country..." value=" ">
+              </span>
+              <span v-if="emailAddressMode" class="SearchInputs" id="emailAddressBox">
+                <label>E-Mail </label>
+                <input class="searchParameterInput" name="emailAddress" id="emailAddress" placeholder="E-Mail..." value=" ">
+              </span>
+              <span v-if="jobMode" class="SearchInputs" id="jobBox">
+                <label>Job </label>
+                <input class="searchParameterInput" name="job" id="job" placeholder="Job..." value=" ">
+              </span>
+              <input name="search" id="searchInput" @change="checkSearch" @focus="searchMode = true" placeholder="Search..." @blur="searchMode = false" >
+            </div> 
+            <p>Search Value: {{ searchValue }}</p>
             <div v-if="searchMode">
               <span class="searchTitle">Parameter Suggestions:</span> 
               <span class="searchParameter">Name</span>
